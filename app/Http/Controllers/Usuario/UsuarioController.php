@@ -31,7 +31,7 @@ class UsuarioController extends Controller
         //
          $reglas=[
              'id_usuario'=>'required|unique:usuario',
-            'pass'=>'required|min:5|confirmed'
+            'pass'=>'required|confirmed'
         ];
 
         $this->validate($request,$reglas);
@@ -66,7 +66,7 @@ class UsuarioController extends Controller
         $usuario = Usuario::findOrFail($id);
 
         $reglas=[
-           'pass'=>'min:5|confirmed'
+           'pass'=>'confirmed'
        ];
 
         $this->validate($request,$reglas);
