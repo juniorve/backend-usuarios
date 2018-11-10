@@ -12,6 +12,6 @@ class Usuario_perfil extends Model
 
     protected $table = 'usuario_perfil';
     public $timestamps = false; 
-    protected  $primaryKey  =  array('id_usuario' , 'id_perfil');
+    protected  $primaryKey  = 'id_usuario , id_perfil';
 
  }
