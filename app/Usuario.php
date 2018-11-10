@@ -11,7 +11,8 @@ class Usuario extends Model
     protected $fillable=[
         'id_usuario',
         'user_name',
-        'pass'
+        'pass',
+        'estado'
     ];   
     
     protected $table = 'usuario';

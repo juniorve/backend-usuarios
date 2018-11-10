@@ -18,3 +18,4 @@ use Illuminate\Http\Request;
 // });
 
 Route::resource('usuarios','Usuario\UsuarioController');
+Route::resource('usuario_perfil','Usuario_perfil\Usuario_perfilController');

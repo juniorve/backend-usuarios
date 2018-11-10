@@ -13,9 +13,9 @@ class UsuarioController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    //recuperamos todos los usuarios
     public function index()
     {
-        //
         $data = Usuario::all();
         return response()->json(['data'=>$data],200);
     }
@@ -26,11 +26,13 @@ class UsuarioController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
+
+     //creamos un nuevo usuario
     public function store(Request $request)
     {
          $reglas=[
              'id_usuario'=>'required|unique:usuario',
-            'pass'=>'required|confirmed'
+             'pass'=>'required|confirmed'
         ];
 
         $this->validate($request,$reglas);
@@ -45,6 +47,7 @@ class UsuarioController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+    //recuperamos un usuario por su id
     public function show($id)
     {
         $usuario = Usuario::findOrFail($id);
@@ -58,21 +61,27 @@ class UsuarioController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+
+     //modificamos los datos del usuario
     public function update(Request $request, $id)
     {
         $usuario = Usuario::findOrFail($id);
 
-        $reglas=[
+   /*      $reglas=[
            'pass'=>'confirmed'
        ];
 
-        $this->validate($request,$reglas);
+        $this->validate($request,$reglas); */
         if($request->has('user_name')){
             $usuario->user_name=$request->user_name;
         }
 
         if($request->has('pass')){
             $usuario->pass=$request->pass;
+        }
+
+        if($request->has('estado')){
+            $usuario->estado=$request->estado;
         }
 
         if(!$usuario->isDirty()){
@@ -91,6 +100,8 @@ class UsuarioController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+
+     //eliminamos un usuario
     public function destroy($id)
     {
         $usuario = Usuario::findOrFail($id);
