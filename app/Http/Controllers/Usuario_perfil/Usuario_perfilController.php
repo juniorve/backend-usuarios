@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers\Usuario_perfil;
 
+use App\Usuario_perfil;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Usuario_perfil;
 
 class Usuario_perfilController extends Controller
 {
@@ -21,18 +21,12 @@ class Usuario_perfilController extends Controller
     }
 
     
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
       
         $campos = $request->all();
         $usuario = Usuario_perfil::create($campos);
+        
         return response()->json(['data'=>$usuario],201);
     }
 
