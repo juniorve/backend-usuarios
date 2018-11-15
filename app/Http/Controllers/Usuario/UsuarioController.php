@@ -84,11 +84,11 @@ class UsuarioController extends Controller
             $usuario->estado=$request->estado;
         }
 
-        if(!$usuario->isDirty()){
+      /*   if(!$usuario->isDirty()){
             return response()->json(['error'=>'Se debe ingresar al menos un valor diferente 
             para modificar', 'code'=>422],422);
         }
-
+ */
         $usuario ->save();
         return response()->json(['data'=>$usuario],200);
 
