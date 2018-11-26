@@ -11,12 +11,8 @@ class Usuario extends Model
     protected $fillable=[
         'id_usuario',
         'user_name',
-<<<<<<< HEAD
         'pass',
         'estado'
-=======
-        'pass'
->>>>>>> 0187267e9285e28751c8ec69e63276ed19aa2533
     ];   
     
     protected $table = 'usuario';
